@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Leaf, Plane, Recycle, TreePine, Wind, Droplets } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
