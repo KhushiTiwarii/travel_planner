@@ -15,7 +15,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import type { LatLngExpression } from 'leaflet';
 
 const ORS_API_KEY = process.env.NEXT_PUBLIC_ORS_API_KEY || '';
-
+console.log(ORS_API_KEY);
 const MapComponent = React.lazy(() => import('@/components/MapComponent'));
 
 interface TravelMode {
