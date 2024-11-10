@@ -14,8 +14,8 @@ import { CardContent, CardDescription, CardHeader, CardTitle, CardFooter, Card }
 import toast, { Toaster } from 'react-hot-toast';
 import type { LatLngExpression } from 'leaflet';
 
-const ORS_API_KEY = process.env.NEXT_PUBLIC_ORS_API_KEY || '';
-console.log(ORS_API_KEY);
+
+const API_KEY = process.env.NEXT_PUBLIC_ORS_API_KEY || '';
 const MapComponent = React.lazy(() => import('@/components/MapComponent'));
 
 interface TravelMode {
@@ -159,7 +159,7 @@ export default function FreeTravelCarbonCalculator() {
   };
 
   const calculateRoute = async (originCoords: number[], destCoords: number[], modeId: string) => {
-    const url = `https://api.openrouteservice.org/v2/directions/${modeId}?api_key=${ORS_API_KEY}&start=${originCoords.join(',')}&end=${destCoords.join(',')}`;
+    const url = `https://api.openrouteservice.org/v2/directions/${modeId}?api_key=${API_KEY}&start=${originCoords.join(',')}&end=${destCoords.join(',')}`;
     const response = await fetch(url);
     const data = await response.json();
 
