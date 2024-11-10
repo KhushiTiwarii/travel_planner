@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from "react"
@@ -41,40 +42,42 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Card className="w-full max-w-md">
+    <div className="flex items-center justify-center min-h-screen bg-green-50">
+      <Card className="w-full max-w-md border border-green-300 shadow-lg">
         <CardHeader>
-          <CardTitle>Login</CardTitle>
+          <CardTitle className="text-green-700">Login</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-green-800">Email</Label>
               <Input
                 id="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="border-green-300 focus:border-green-500 focus:ring-green-500"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-green-800">Password</Label>
               <Input
                 id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                className="border-green-300 focus:border-green-500 focus:ring-green-500"
               />
             </div>
             {error && <p className="text-red-500">{error}</p>}
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white">
               Log in
             </Button>
           </form>
-          <p className="mt-4 text-center">
-            Don&apos;t have an account? <Link href="/signup" className="text-blue-600 hover:underline">Sign up</Link>
+          <p className="mt-4 text-center text-green-700">
+            Don&apos;t have an account? <Link href="/signup" className="text-green-600 hover:underline">Sign up</Link>
           </p>
         </CardContent>
       </Card>

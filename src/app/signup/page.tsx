@@ -38,49 +38,52 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Card className="w-full max-w-md">
+    <div className="flex items-center justify-center min-h-screen bg-green-50">
+      <Card className="w-full max-w-md border border-green-300 shadow-lg">
         <CardHeader>
-          <CardTitle>Sign Up</CardTitle>
+          <CardTitle className="text-green-700">Sign Up</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="username">Username</Label>
+              <Label htmlFor="username" className="text-green-800">Username</Label>
               <Input
                 id="username"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
+                className="border-green-300 focus:border-green-500 focus:ring-green-500"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-green-800">Email</Label>
               <Input
                 id="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="border-green-300 focus:border-green-500 focus:ring-green-500"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-green-800">Password</Label>
               <Input
                 id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                className="border-green-300 focus:border-green-500 focus:ring-green-500"
               />
             </div>
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white">
               Sign Up
             </Button>
           </form>
-          <p className="mt-4 text-center">
-            Already have an account? <Link href="/login" className="text-blue-600 hover:underline">Log in</Link>
+          <p className="mt-4 text-center text-green-700">
+            Already have an account? <Link href="/login" className="text-green-600 hover:underline">Log in</Link>
           </p>
         </CardContent>
       </Card>
