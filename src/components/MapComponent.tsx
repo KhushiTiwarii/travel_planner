@@ -77,7 +77,6 @@ interface MapComponentProps {
   highestCarbonRouteIndex: number | null;
   routes: LatLngExpression[][]; // Array of routes, where each route is an array of coordinates
   selectedRouteIndex: number | null; // Selected route index
-  onSourceLocationChange?: (location: LatLngExpression) => void; // Callback for source location change
 }
 
 // Define colors for polylines
@@ -87,12 +86,10 @@ const MapComponent: React.FC<MapComponentProps> = ({
   routes = [],
   selectedRouteIndex = null,
   highestCarbonRouteIndex,
-  onSourceLocationChange
 }) => {
   const mapRef = useRef<HTMLDivElement>(null)
   const leafletMap = useRef<Map | null>(null)
   const polylines = useRef<Polyline[]>([])
-  const sourceMarker = useRef<L.Marker | null>(null)
 
   useEffect(() => {
     if (typeof window !== 'undefined' && mapRef.current) {

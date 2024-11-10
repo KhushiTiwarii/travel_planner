@@ -55,7 +55,7 @@ export default function Landing() {
         <section id="about" className="text-center mb-16 bg-green-50 py-12 rounded-lg shadow-inner">
           <h2 className="text-3xl font-bold text-green-800 mb-4">About Onestop Eco Travel</h2>
           <p className="text-lg text-green-600 mb-8 max-w-3xl mx-auto">
-            We're passionate about making sustainable travel accessible to everyone. Our platform 
+            We&apos;re passionate about making sustainable travel accessible to everyone. Our platform 
             combines cutting-edge technology with eco-conscious practices to help you explore the 
             world while minimizing your environmental impact.
           </p>

@@ -64,7 +64,7 @@ export default function Itinerary() {
           safetySettings,
         });
         setChat(newChat);
-      } catch (error) {
+      } catch{
         setError("Failed to initialize chat. Please try again.");
         toast.error("Failed to initialize chat. Please try again.");
       }

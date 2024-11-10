@@ -1,12 +1,11 @@
 'use client'
 
 import React, { useState, useEffect } from "react"
-import { Leaf, Plane, Recycle, TreePine, Sun, Wind, Droplets } from "lucide-react"
+import { Leaf, Plane, Recycle, TreePine, Wind, Droplets } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0)
   const ecoDestinations = [
     {
       name: "Costa Rica",
@@ -28,12 +27,6 @@ export default function Home() {
     }
   ]
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % ecoDestinations.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-green-50 to-green-100 text-green-900">

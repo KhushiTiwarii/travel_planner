@@ -1,6 +1,4 @@
-
 'use client';
-
 import React, { useEffect, useState } from 'react';
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import { Send, MapPin, Loader2, Hotel, MapPinned, Leaf } from 'lucide-react';
@@ -9,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from '@/components/Header';
-
 interface Hotel {
   name: string;
   price: number;
@@ -22,31 +19,22 @@ interface Hotel {
   rating: string;
   image: string;
 }
-
 export default function TravelPlanner() {
   const [destination, setDestination] = useState('');
   const [hotels, setHotels] = useState<Hotel[]>([]);
-  const [filteredHotels, setFilteredHotels] = useState<Hotel[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [chat, setChat] = useState<any>(null);
-
-  // Filter states
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 100000]);
-  const [accommodationType, setAccommodationType] = useState('all');
-  const [certification, setCertification] = useState('all');
-
+ 
   const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY || '';
   const MODEL_NAME = 'gemini-1.0-pro-001';
   const genAI = new GoogleGenerativeAI(API_KEY);
-
   const generationConfig = {
     temperature: 0.9,
     topK: 1,
     topP: 1,
     maxOutputTokens: 2048,
   };
-
   const safetySettings = [
     {
       category: HarmCategory.HARM_CATEGORY_HARASSMENT,
@@ -65,7 +53,6 @@ export default function TravelPlanner() {
       threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
     },
   ];
-
   useEffect(() => {
     const initChat = async () => {
       try {
@@ -76,13 +63,12 @@ export default function TravelPlanner() {
             safetySettings,
           });
         setChat(newChat);
-      } catch (error) {
+      } catch {
         setError("Failed to initialize chat. Please try again.");
       }
     };
     initChat();
   }, []);
-
   const handleSubmit = async () => {
     if (!destination.trim()) {
       setError("Please provide a destination.");
@@ -103,7 +89,6 @@ export default function TravelPlanner() {
         const resultText = await result.response.text();
         
         const cleanedResultText = resultText.replace(/```JSON|```/g, '').trim();
-
         let parsedHotels: Hotel[];
         try {
           parsedHotels = JSON.parse(cleanedResultText);
@@ -122,7 +107,6 @@ export default function TravelPlanner() {
         }));
   
         setHotels(hotelsWithRatings);
-        setFilteredHotels(hotelsWithRatings);
       }
     } catch (error) {
       console.error("Chat error:", error);
@@ -131,25 +115,8 @@ export default function TravelPlanner() {
       setLoading(false);
     }
   };
-
-  const filterAccommodations = () => {
-    const filtered = hotels.filter(hotel => {
-      const priceInRange = hotel.price >= priceRange[0] && hotel.price <= priceRange[1];
-      const typeMatch = accommodationType === 'all' || hotel.type === accommodationType;
-      const certMatch = certification === 'all' || hotel.certifications.includes(certification);
-      return priceInRange && typeMatch && certMatch;
-    });
-    setFilteredHotels(filtered);
-  };
-
-  useEffect(() => {
-    filterAccommodations();
-  }, [priceRange, accommodationType, certification, hotels]);
-
-  const certifications = [...new Set(hotels.flatMap(hotel => hotel.certifications))];
-
+ 
   return (
-
     <>
     <Header/>
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100">
@@ -160,7 +127,6 @@ export default function TravelPlanner() {
         <h2 className="text-xl font-semibold text-center text-gray-600 mb-8">
           Discover Sustainable Hotels for Your Next Adventure
         </h2>
-
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 mb-8">
           <div className="w-full md:w-3/4">
             <Input
@@ -184,16 +150,13 @@ export default function TravelPlanner() {
             {loading ? 'Searching...' : 'Find Hotels'}
           </Button>
         </div>
-
         {error && (
           <p className="text-center text-red-500 mb-4 bg-red-100 p-3 rounded-lg">{error}</p>
         )}
-
         <section className="container mx-auto py-16 px-4">
   
-
           <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {filteredHotels.map((hotel, index) => (
+            {hotels.map((hotel, index) => (
               <Card key={index}>
                 <CardHeader>
                   <CardTitle className="text-lg font-semibold">{hotel.name}</CardTitle>
@@ -213,7 +176,6 @@ export default function TravelPlanner() {
                       <span>{hotel.rating} / 5</span>
                     </div>
                   </div>
-
                   <div className="mt-4 flex items-center space-x-2">
                     <Leaf className="h-5 w-5 text-green-500" />
                     <span className="text-sm text-gray-500">
