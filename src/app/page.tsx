@@ -33,7 +33,7 @@ export default function Home() {
       <header className="px-4 lg:px-6 h-20 flex items-center justify-between border-b border-green-200 bg-white/80 backdrop-blur-md fixed w-full z-10 transition-all duration-300 ease-in-out">
         <Link href="/" className="flex items-center justify-center group">
           <Leaf className="h-8 w-8 text-green-600 transition-transform group-hover:rotate-45" />
-          <span className="ml-2 text-2xl font-bold text-green-800 group-hover:text-green-600 transition-colors">OneStop</span>
+          <span className="ml-2 text-2xl font-bold text-green-800 group-hover:text-green-600 transition-colors">TravEco</span>
         </Link>
         <nav className="hidden md:flex space-x-6">
           <Link href="#about" className="text-green-700 hover:text-green-900 transition-colors">About</Link>
@@ -54,7 +54,7 @@ export default function Home() {
                 Travel Sustainably, Explore Responsibly
               </h1>
               <p className="mx-auto max-w-[700px] text-green-800 text-xl md:text-2xl lg:text-3xl drop-shadow animate-fade-in-up">
-                Plan your eco-friendly adventure with OneStop
+                Plan your eco-friendly adventure with TravEco
               </p>
               <Button asChild className="px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-full hover:bg-green-700 relative overflow-hidden group">
                 <Link href="/login">
@@ -72,7 +72,7 @@ export default function Home() {
         <section id="about" className="w-full py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-green-800">
-              About OneStop Eco Travel
+              About TravEco Eco Travel
             </h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {[
@@ -139,7 +139,7 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div>
               <h3 className="text-xl font-semibold mb-4">About Us</h3>
-              <p className="text-green-200">OneStop Eco Travel is committed to promoting sustainable and responsible tourism worldwide.</p>
+              <p className="text-green-200">TravEco Eco Travel is committed to promoting sustainable and responsible tourism worldwide.</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
@@ -152,7 +152,7 @@ export default function Home() {
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-              <p className="text-green-200">Email: info@onestop-eco.com</p>
+              <p className="text-green-200">Email: info@TravEco-eco.com</p>
               <p className="text-green-200">Phone: +1 (555) 123-4567</p>
             </div>
             <div>
@@ -178,9 +178,9 @@ export default function Home() {
           <div className="mt-12 border-t border-green-700 pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-2">
               <Leaf className="h-8 w-8" />
-              <span className="text-2xl font-bold">OneStop</span>
+              <span className="text-2xl font-bold">TravEco</span>
             </div>
-            <p className="text-green-200 mt-4 md:mt-0">© 2024 OneStop Eco Travel. All rights reserved.</p>
+            <p className="text-green-200 mt-4 md:mt-0">© 2024 TravEco Eco Travel. All rights reserved.</p>
           </div>
         </div>
       </footer>

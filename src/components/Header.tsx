@@ -41,7 +41,7 @@ export default function Header() {
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link href="/dashboard" className="flex-shrink-0 flex items-center">
-              <div className="text-2xl font-bold text-green-700">Onestop</div>
+              <div className="text-2xl font-bold text-green-700">TravEco</div>
             </Link>
             <div className="hidden md:flex ml-10 items-baseline space-x-4">
               {navItems.map((item) => (

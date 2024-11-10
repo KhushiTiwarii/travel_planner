@@ -53,7 +53,7 @@ export default function Landing() {
         </section>
 
         <section id="about" className="text-center mb-16 bg-green-50 py-12 rounded-lg shadow-inner">
-          <h2 className="text-3xl font-bold text-green-800 mb-4">About Onestop Eco Travel</h2>
+          <h2 className="text-3xl font-bold text-green-800 mb-4">About TravEco Eco Travel</h2>
           <p className="text-lg text-green-600 mb-8 max-w-3xl mx-auto">
             We&apos;re passionate about making sustainable travel accessible to everyone. Our platform 
             combines cutting-edge technology with eco-conscious practices to help you explore the 
@@ -87,7 +87,7 @@ old text-green-800 mb-2">Reduce Your Footprint</h3>
 
       <footer className="bg-green-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-          <p>&copy; 2023 Onestop Eco Travel. All rights reserved.</p>
+          <p>&copy; 2023 TravEco Eco Travel. All rights reserved.</p>
           <nav className="mt-4 md:mt-0">
             <ul className="flex space-x-4">
               <li><a href="#" className="hover:text-green-200 transition-colors">Privacy Policy</a></li>
