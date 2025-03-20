@@ -27,7 +27,7 @@ export default function TravelPlanner() {
   const [chat, setChat] = useState<any>(null);
  
   const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY || '';
-  const MODEL_NAME = 'gemini-1.0-pro-001';
+  const MODEL_NAME = 'gemini-2.0-pro-exp-02-05';
   const genAI = new GoogleGenerativeAI(API_KEY);
   const generationConfig = {
     temperature: 0.9,
@@ -88,11 +88,11 @@ export default function TravelPlanner() {
         const result = await chat.sendMessage(inputPrompt);
         const resultText = await result.response.text();
         
-        const cleanedResultText = resultText.replace(/```JSON|```/g, '').trim();
+        const cleanedResultText = resultText.replace(/```json|```/g, '').trim();
         let parsedHotels: Hotel[];
         try {
           parsedHotels = JSON.parse(cleanedResultText);
-          console.log(parsedHotels);
+          // console.log(parsedHotels);
         } catch (parseError) {
           console.error("JSON parsing error:", parseError);
           setError("Failed to parse hotel recommendations. Please try again.");

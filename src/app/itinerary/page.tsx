@@ -27,7 +27,7 @@ export default function Itinerary() {
   const [chat, setChat] = useState<any>(null);
 
   const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY || '';
-  const MODEL_NAME = 'gemini-1.0-pro-001';
+  const MODEL_NAME = 'gemini-2.0-pro-exp-02-05';
   const genAI = new GoogleGenerativeAI(API_KEY);
 
   const generationConfig = {
